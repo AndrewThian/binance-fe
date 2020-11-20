@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "live-server ."
+    "start": "live-server ./public",
+    "serve": "http-server ./public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
   }
 }
