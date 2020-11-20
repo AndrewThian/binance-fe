@@ -10,6 +10,7 @@ function startUp() {
 
   background(context);
   fonts(context);
+  yAxis(context);
 
   return context;
 }

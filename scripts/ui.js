@@ -8,4 +8,12 @@ function fonts(ctx) {
   ctx.fillStyle = CANVAS_ALT_COLOR;
 }
 
-export { background, fonts };
+function yAxis(ctx) {
+  ctx.beginPath();
+  ctx.moveTo(canvasWidth - CANVAS_RIGHT_OFFSET, 0);
+  ctx.lineTo(canvasWidth - CANVAS_RIGHT_OFFSET, canvasHeight);
+  ctx.strokeStyle = CANVAS_ALT_COLOR;
+  ctx.stroke();
+}
+
+export { background, fonts, yAxis };
