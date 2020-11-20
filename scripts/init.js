@@ -6,7 +6,7 @@ import {
   addStocks,
   startUp,
 } from "./ui.js";
-import { fetchData, trimLast100, calcMinMax } from "./utils.js";
+import { fetchData, trimLast100, calcMinMax, subscribe } from "./utils.js";
 
 async function init() {
   const ctx = startUp();
