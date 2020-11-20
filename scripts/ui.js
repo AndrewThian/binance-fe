@@ -1,5 +1,6 @@
 let canvasWidth;
 let canvasHeight;
+let firstRender = true;
 
 const CHART_PADDING = 20;
 const CANVAS_BG_COLOR = "#14151a";
@@ -23,6 +24,9 @@ function reset(ctx) {
 }
 
 function addStocks(ctx, datas, chartInfo) {
+  if (firstRender) firstRender = false;
+  if (!firstRender) reset(ctx);
+
   const elementWidth =
     (canvasWidth - (CHART_PADDING + BAR_GAP + CANVAS_RIGHT_OFFSET)) /
     datas.length;

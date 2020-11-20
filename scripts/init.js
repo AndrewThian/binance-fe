@@ -19,6 +19,12 @@ async function init() {
       addStocks(ctx, data, chartInfo);
       return [data, chartInfo];
     });
+
+  subscribe((incomingData) => {
+    data.shift();
+    data.push(incomingData);
+    addStocks(ctx, data, chartInfo);
+  });
 }
 
 window.addEventListener("DOMContentLoaded", init);

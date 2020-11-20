@@ -24,6 +24,21 @@ async function fetchData() {
   return seriesData;
 }
 
+function subscribe(listener) {
+  try {
+    const socket = new WebSocket(
+      "wss://stream.binance.com/stream?streams=btcusdt@kline_1m"
+    );
+    socket.onmessage = (e) => {
+      const res = JSON.parse(e.data);
+      const { t, o, h, l, c } = res.data.k;
+      listener(format({ time: t, open: o, high: h, low: l, close: c }));
+    };
+  } catch (e) {
+    console.log(e.message);
+  }
+}
+
 function trimLast100(data) {
   return data.filter((_, idx) => idx < 500 && idx > 399);
 }
@@ -66,4 +81,4 @@ function format({ time, open, high, low, close }) {
   };
 }
 
-export { fetchData, trimLast100, calcMinMax };
+export { fetchData, subscribe, trimLast100, calcMinMax };
