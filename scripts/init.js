@@ -1,4 +1,5 @@
-import { background, fonts, yAxis, fillYAxis } from "./ui.js";
+import { background, fonts, yAxis, fillYAxis, addStocks } from "./ui.js";
+import { fetchData, trimLast100, calcMinMax } from "./util.js";
 
 function startUp() {
   const canvas = document.getElementById("canvas");
@@ -17,6 +18,15 @@ function startUp() {
 
 async function init() {
   const ctx = startUp();
+
+  const [data, chartInfo] = await fetchData()
+    .then(trimLast100)
+    .then(calcMinMax)
+    .then(({ chartInfo, data }) => {
+      fillYAxis(ctx, chartInfo);
+      addStocks(ctx, data, chartInfo);
+      return [data, chartInfo];
+    });
 }
 
 window.addEventListener("DOMContentLoaded", init);
