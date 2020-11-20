@@ -1,3 +1,5 @@
+import { background } from "./ui.js";
+
 function startUp() {
   const canvas = document.getElementById("canvas");
 
@@ -5,6 +7,9 @@ function startUp() {
   canvasWidth = canvas.width;
 
   const context = canvas.getContext("2d");
+
+  background(context);
+  fonts(context);
 
   return context;
 }
