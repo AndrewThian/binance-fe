@@ -1,20 +1,12 @@
-import { background, fonts, yAxis, fillYAxis, addStocks } from "./ui.js";
-import { fetchData, trimLast100, calcMinMax } from "./util.js";
-
-function startUp() {
-  const canvas = document.getElementById("canvas");
-
-  canvasHeight = canvas.height;
-  canvasWidth = canvas.width;
-
-  const context = canvas.getContext("2d");
-
-  background(context);
-  fonts(context);
-  yAxis(context);
-
-  return context;
-}
+import {
+  background,
+  fonts,
+  yAxis,
+  fillYAxis,
+  addStocks,
+  startUp,
+} from "./ui.js";
+import { fetchData, trimLast100, calcMinMax } from "./utils.js";
 
 async function init() {
   const ctx = startUp();

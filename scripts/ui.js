@@ -116,4 +116,19 @@ function fillYAxis(ctx, chartInfo) {
   ctx.stroke();
 }
 
-export { background, fonts, yAxis, fillYAxis, addStocks };
+function startUp() {
+  const canvas = document.getElementById("canvas");
+
+  canvasHeight = canvas.height;
+  canvasWidth = canvas.width;
+
+  const context = canvas.getContext("2d");
+
+  background(context);
+  fonts(context);
+  yAxis(context);
+
+  return context;
+}
+
+export { background, fonts, yAxis, fillYAxis, addStocks, startUp };
