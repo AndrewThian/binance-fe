@@ -1,4 +1,4 @@
-import { background } from "./ui.js";
+import { background, fonts, yAxis, fillYAxis } from "./ui.js";
 
 function startUp() {
   const canvas = document.getElementById("canvas");
